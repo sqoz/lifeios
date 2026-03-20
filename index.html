@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
-<!-- saved from url=(0053)file:///Users/gennadyhome/Downloads/dashboard_12.html -->
-<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LIFE OS">
 <meta name="theme-color" content="#080809">
 <title>LIFE OS</title>
-<link href="./index_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:#080809; --s1:#0f0f12; --s2:#141418; --s3:#1a1a20;
@@ -326,12 +325,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 <div class="topbar">
   <div class="logo">LIFE <span>OS</span></div>
   <div class="top-right">
-    <span id="todayStr">20.03.2026</span>
+    <span id="todayStr">—</span>
     <span>→ 01.08.2026</span>
-    <span>Осталось: <strong id="daysLeft">134</strong> дн.</span>
+    <span>Осталось: <strong id="daysLeft">—</strong> дн.</span>
     <div class="period-bar">
-      <div class="period-track"><div class="period-fill" id="pFill" style="width: 1%;"></div></div>
-      <strong id="pPct">1%</strong>
+      <div class="period-track"><div class="period-fill" id="pFill" style="width:0%"></div></div>
+      <strong id="pPct">0%</strong>
     </div>
     <button class="ai-toggle" onclick="toggleAI()">
       <div class="dot"></div> AI Ассистент
@@ -340,13 +339,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 </div>
 
 <div class="tabs">
-  <button class="tab active" onclick="switchTab(this,&#39;overview&#39;)">Обзор</button>
-  <button class="tab" onclick="switchTab(this,&#39;week&#39;)">Неделя</button>
-  <button class="tab" onclick="switchTab(this,&#39;content&#39;)">Контент</button>
-  <button class="tab" onclick="switchTab(this,&#39;finance&#39;)">Финансы</button>
-  <button class="tab" onclick="switchTab(this,&#39;body&#39;)">Энергия</button>
-  <button class="tab" onclick="switchTab(this,&#39;life&#39;)">Жизнь</button>
-  <button class="tab" onclick="switchTab(this,&#39;kanban&#39;)">Задачи</button>
+  <button class="tab active" onclick="switchTab(this,'overview')">Обзор</button>
+  <button class="tab" onclick="switchTab(this,'week')">Неделя</button>
+  <button class="tab" onclick="switchTab(this,'content')">Контент</button>
+  <button class="tab" onclick="switchTab(this,'finance')">Финансы</button>
+  <button class="tab" onclick="switchTab(this,'body')">Энергия</button>
+  <button class="tab" onclick="switchTab(this,'life')">Жизнь</button>
+  <button class="tab" onclick="switchTab(this,'kanban')">Задачи</button>
 </div>
 
 <div class="main">
@@ -357,480 +356,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
     <button class="wk-nav" onclick="shiftView(-1)">←</button>
     <button class="wk-nav" onclick="goToday()">Сегодня</button>
     <button class="wk-nav" onclick="shiftView(1)">→</button>
-    <div class="wk-period" id="wkPeriod">16 мар — 29 мар 2026</div>
+    <div class="wk-period" id="wkPeriod">—</div>
   </div>
-  <div id="wkGrid">
-    <div class="wk-week-wrap">
-      <div class="wk-time-col"><div class="wk-time-label">09:00</div><div class="wk-time-label">12:00</div><div class="wk-time-label">15:00</div><div class="wk-time-label">18:00</div><div class="wk-time-label">21:00</div></div>
-      <div class="wk-days-grid">
-        <div class="wk-day past">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Пн</div>
-              <div class="wk-day-num">16</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-15&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-15&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-15&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-15&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-15&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day past">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Вт</div>
-              <div class="wk-day-num">17</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-16&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-16&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-16&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-16&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-16&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day past">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Ср</div>
-              <div class="wk-day-num">18</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-17&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-17&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-17&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-17&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-17&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day past">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Чт</div>
-              <div class="wk-day-num">19</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-18&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-18&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-18&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-18&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-18&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day past">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Пт</div>
-              <div class="wk-day-num">20</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-19&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-19&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-19&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-19&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-19&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day today">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Сб</div>
-              <div class="wk-day-num">21</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot wk-slot-filled" onclick="wkShowTask(&#39;2026-03-20&#39;,&#39;s1&#39;,&#39;mmz7qjf41t1n&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-task">
-                      <div class="wk-task-title">Сделать Видео</div>
-                      <button class="wk-task-del" onclick="wkDel(&#39;2026-03-20&#39;,&#39;s1&#39;,&#39;mmz7qjf41t1n&#39;);event.stopPropagation()">✕</button>
-                    </div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-20&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-20&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-20&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-20&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Вс</div>
-              <div class="wk-day-num">22</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-21&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-21&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-21&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-21&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-21&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div class="wk-week-wrap">
-      <div class="wk-time-col"><div class="wk-time-label">09:00</div><div class="wk-time-label">12:00</div><div class="wk-time-label">15:00</div><div class="wk-time-label">18:00</div><div class="wk-time-label">21:00</div></div>
-      <div class="wk-days-grid">
-        <div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Пн</div>
-              <div class="wk-day-num">23</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-22&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-22&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-22&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-22&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-22&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Вт</div>
-              <div class="wk-day-num">24</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-23&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-23&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-23&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-23&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-23&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Ср</div>
-              <div class="wk-day-num">25</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-24&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-24&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-24&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-24&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-24&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Чт</div>
-              <div class="wk-day-num">26</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-25&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-25&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-25&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-25&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-25&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Пт</div>
-              <div class="wk-day-num">27</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-26&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-26&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-26&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-26&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-26&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Сб</div>
-              <div class="wk-day-num">28</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-27&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-27&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-27&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-27&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-27&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div><div class="wk-day">
-            <div class="wk-day-head">
-              <div class="wk-day-name">Вс</div>
-              <div class="wk-day-num">29</div>
-            </div>
-            <div class="wk-slots">
-              <div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-28&#39;,&#39;s1&#39;)">
-                    <div class="wk-slot-lbl">09:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-28&#39;,&#39;s2&#39;)">
-                    <div class="wk-slot-lbl">12:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-28&#39;,&#39;s3&#39;)">
-                    <div class="wk-slot-lbl">15:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-28&#39;,&#39;s4&#39;)">
-                    <div class="wk-slot-lbl">18:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div><div class="wk-slot" onclick="wkOpenAdd(&#39;2026-03-28&#39;,&#39;s5&#39;)">
-                    <div class="wk-slot-lbl">21:00</div>
-                    <div class="wk-slot-empty-hint">+ добавить</div>
-                  </div>
-            </div>
-          </div>
-      </div>
-    </div></div>
+  <div id="wkGrid"></div>
 </div>
 
 <!-- OVERVIEW -->
 <div class="panel active" id="panel-overview">
   <div class="sh"><div class="sh-title">Ключевые цели</div><div class="sh-line"></div></div>
-  <div class="donuts-row" id="overviewGoals"><div class="donut-card">
-    <svg width="120" height="120" viewBox="0 0 120 120">
-    <defs><lineargradient id="dgmmz9cynpx76q" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f80ff"></stop>
-      <stop offset="100%" stop-color="#4f80ff" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="#1a1a20" stroke-width="12"></circle>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="url(#dgmmz9cynpx76q)" stroke-width="12" stroke-dasharray="0 339.3"></circle>
-    <text x="60" y="65" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">0%</text>
-  </svg>
-    <div class="donut-name">Общий прогресс</div>
-    <div class="donut-sub">все сферы</div>
-  </div><div class="donut-card">
-    <svg width="120" height="120" viewBox="0 0 120 120">
-    <defs><lineargradient id="dgmmz9cynp5acf" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f80ff"></stop>
-      <stop offset="100%" stop-color="#4f80ff" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="#1a1a20" stroke-width="12"></circle>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="url(#dgmmz9cynp5acf)" stroke-width="12" stroke-dasharray="0 339.3"></circle>
-    <text x="60" y="65" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">0%</text>
-  </svg>
-    <div class="donut-name">YouTube Ролики</div>
-    <div class="donut-sub">0 / 40</div>
-  </div><div class="donut-card">
-    <svg width="120" height="120" viewBox="0 0 120 120">
-    <defs><lineargradient id="dgmmz9cynpaarr" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#25d48a"></stop>
-      <stop offset="100%" stop-color="#25d48a" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="#1a1a20" stroke-width="12"></circle>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="url(#dgmmz9cynpaarr)" stroke-width="12" stroke-dasharray="0 339.3"></circle>
-    <text x="60" y="65" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">0%</text>
-  </svg>
-    <div class="donut-name">Лиды</div>
-    <div class="donut-sub">0 / 100</div>
-  </div><div class="donut-card">
-    <svg width="120" height="120" viewBox="0 0 120 120">
-    <defs><lineargradient id="dgmmz9cynpxlf5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff4567"></stop>
-      <stop offset="100%" stop-color="#ff4567" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="#1a1a20" stroke-width="12"></circle>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="url(#dgmmz9cynpxlf5)" stroke-width="12" stroke-dasharray="2.4 336.9" stroke-dashoffset="84.8" stroke-linecap="round"></circle>
-    <text x="60" y="65" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">1%</text>
-  </svg>
-    <div class="donut-name">Энергия</div>
-    <div class="donut-sub">все активности</div>
-  </div><div class="donut-card">
-    <svg width="120" height="120" viewBox="0 0 120 120">
-    <defs><lineargradient id="dgmmz9cynpupj8" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#25d48a"></stop>
-      <stop offset="100%" stop-color="#25d48a" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="#1a1a20" stroke-width="12"></circle>
-    <circle cx="60" cy="60" r="54" fill="none" stroke="url(#dgmmz9cynpupj8)" stroke-width="12" stroke-dasharray="0 339.3"></circle>
-    <text x="60" y="65" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">0%</text>
-  </svg>
-    <div class="donut-name">Жизнь</div>
-    <div class="donut-sub">0 событий</div>
-  </div></div>
-  <div id="lastEntryBlock"><div class="last-entry">
-    <div class="last-entry-label">Последнее добавление</div>
-    <div class="last-entry-row">
-      <span class="last-entry-name">Холодный душ</span>
-      <span class="last-entry-val">→ 1</span>
-      <span class="last-entry-date">20.03.2026 в 20:19</span>
-    </div>
-  </div></div>
+  <div class="donuts-row" id="overviewGoals"></div>
+  <div id="lastEntryBlock"></div>
 </div>
 
 <!-- CONTENT -->
 <div class="panel" id="panel-content">
-  <div class="sh"><div class="sh-title">YouTube &amp; Контент</div><div class="sh-line"></div></div>
-  <div class="content-donut-grid" id="contentGoals"><div class="content-donut-card">
-    <svg width="140" height="140" viewBox="0 0 140 140">
-    <defs><lineargradient id="dgmmz9cynquysh" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f80ff"></stop>
-      <stop offset="100%" stop-color="#4f80ff" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="70" cy="70" r="63" fill="none" stroke="#1a1a20" stroke-width="14"></circle>
-    <circle cx="70" cy="70" r="63" fill="none" stroke="url(#dgmmz9cynquysh)" stroke-width="14" stroke-dasharray="0 395.8"></circle>
-    <text x="70" y="75" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">0%</text>
-  </svg>
-    <div class="cd-label">YouTube Long</div>
-    <div class="cd-val">0 <span>/ 40</span></div>
-    <div class="cd-freq">2/нед</div>
-    <div class="cd-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;yt_long&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;yt_long&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;yt_long&#39;,&#39;YouTube Ролики&#39;)">✏</button>
-    </div>
-  </div><div class="content-donut-card">
-    <svg width="140" height="140" viewBox="0 0 140 140">
-    <defs><lineargradient id="dgmmz9cyo3pfoh" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f80ff"></stop>
-      <stop offset="100%" stop-color="#4f80ff" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="70" cy="70" r="63" fill="none" stroke="#1a1a20" stroke-width="14"></circle>
-    <circle cx="70" cy="70" r="63" fill="none" stroke="url(#dgmmz9cyo3pfoh)" stroke-width="14" stroke-dasharray="0 395.8"></circle>
-    <text x="70" y="75" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">0%</text>
-  </svg>
-    <div class="cd-label">YouTube Shorts</div>
-    <div class="cd-val">0 <span>/ 120</span></div>
-    <div class="cd-freq">6/нед</div>
-    <div class="cd-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;yt_short&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;yt_short&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;yt_short&#39;,&#39;YouTube Shorts&#39;)">✏</button>
-    </div>
-  </div><div class="content-donut-card">
-    <svg width="140" height="140" viewBox="0 0 140 140">
-    <defs><lineargradient id="dgmmz9cyo3fx51" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f80ff"></stop>
-      <stop offset="100%" stop-color="#4f80ff" stop-opacity=".45"></stop>
-    </lineargradient></defs>
-    <circle cx="70" cy="70" r="63" fill="none" stroke="#1a1a20" stroke-width="14"></circle>
-    <circle cx="70" cy="70" r="63" fill="none" stroke="url(#dgmmz9cyo3fx51)" stroke-width="14" stroke-dasharray="0 395.8"></circle>
-    <text x="70" y="75" text-anchor="middle" font-family="&#39;Space Mono&#39;,monospace" font-size="14" font-weight="700" fill="#f0f0f5">0%</text>
-  </svg>
-    <div class="cd-label">Telegram Posts</div>
-    <div class="cd-val">0 <span>/ 80</span></div>
-    <div class="cd-freq">4/нед</div>
-    <div class="cd-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;tg&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;tg&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;tg&#39;,&#39;Telegram Посты&#39;)">✏</button>
-    </div>
-  </div></div>
+  <div class="sh"><div class="sh-title">YouTube & Контент</div><div class="sh-line"></div></div>
+  <div class="content-donut-grid" id="contentGoals"></div>
 </div>
 
 <!-- FINANCE -->
@@ -844,8 +385,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
       </div>
       <div class="fin-right">
         <div class="fin-label">Осталось</div>
-        <div class="fin-left-val" id="finLeft">1&nbsp;000&nbsp;000 ₽</div>
-        <div class="fin-per-day">В день: <span id="finDay">7&nbsp;463 ₽/д</span></div>
+        <div class="fin-left-val" id="finLeft">1 000 000 ₽</div>
+        <div class="fin-per-day">В день: <span id="finDay">—</span></div>
       </div>
     </div>
     <div class="fin-bar"><div class="fin-bar-f" id="finBar" style="width:0%"></div></div>
@@ -856,381 +397,26 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
       <button class="fin-btn sec" onclick="setFin()">= Установить</button>
     </div>
   </div>
-  <div class="sh"><div class="sh-title">Лиды &amp; Продажи</div><div class="sh-line"></div></div>
-  <div class="grid" id="finGoals"><div class="gcard" style="--ca:var(--green)">
-    <div class="gc-label">Лиды</div>
-    <div class="gc-val">0<span> / 100</span></div>
-    <div class="gc-pct">0%</div>
-    <div class="pbar"><div class="pfill" style="width:0%;background:var(--green)"></div></div>
-    <div class="gc-btns">
-      <button class="bsm" style="--ca:var(--green)" onclick="dec(&#39;leads&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--green)" onclick="inc(&#39;leads&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--green)" onclick="promptSet(&#39;leads&#39;,&#39;Лиды&#39;)">✏</button>
-    </div>
-  </div><div class="gcard" style="--ca:var(--green)">
-    <div class="gc-label">Консультации</div>
-    <div class="gc-val">0<span> / 30</span></div>
-    <div class="gc-pct">0%</div>
-    <div class="pbar"><div class="pfill" style="width:0%;background:var(--green)"></div></div>
-    <div class="gc-btns">
-      <button class="bsm" style="--ca:var(--green)" onclick="dec(&#39;consults&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--green)" onclick="inc(&#39;consults&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--green)" onclick="promptSet(&#39;consults&#39;,&#39;Консультации&#39;)">✏</button>
-    </div>
-  </div><div class="gcard" style="--ca:var(--gold)">
-    <div class="gc-label">Продажи</div>
-    <div class="gc-val">0<span> / 10</span></div>
-    <div class="gc-pct">0%</div>
-    <div class="pbar"><div class="pfill" style="width:0%;background:var(--gold)"></div></div>
-    <div class="gc-btns">
-      <button class="bsm" style="--ca:var(--gold)" onclick="dec(&#39;sales&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--gold)" onclick="inc(&#39;sales&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--gold)" onclick="promptSet(&#39;sales&#39;,&#39;Продажи&#39;)">✏</button>
-    </div>
-  </div><div class="gcard" style="--ca:var(--red)">
-    <div class="gc-label">Выступление / Эфир · 1/2нед</div>
-    <div class="gc-val">0<span> / 10</span></div>
-    <div class="gc-pct">0%</div>
-    <div class="pbar"><div class="pfill" style="width:0%;background:var(--red)"></div></div>
-    <div class="gc-btns">
-      <button class="bsm" style="--ca:var(--red)" onclick="dec(&#39;stream&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--red)" onclick="inc(&#39;stream&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--red)" onclick="promptSet(&#39;stream&#39;,&#39;Выступление / Эфир&#39;)">✏</button>
-    </div>
-  </div></div>
+  <div class="sh"><div class="sh-title">Лиды & Продажи</div><div class="sh-line"></div></div>
+  <div class="grid" id="finGoals"></div>
 </div>
 
 <!-- BODY/ENERGY -->
 <div class="panel" id="panel-body">
-  <div class="sh"><div class="sh-title">Энергия &amp; Тело</div><div class="sh-line"></div></div>
-  <div class="grid-sm" id="bodyGrid"><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🏋️</div><div class="bcard-name">Зал</div></div>
-    <div class="bcard-val">1<span> / 40</span></div>
-    <div class="bcard-info">2×/нед · 3%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:3%;background:var(--blue)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;gym&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;gym&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;gym&#39;,&#39;Зал&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">⚡</div><div class="bcard-name">Доп. активность</div></div>
-    <div class="bcard-val">0<span> / 20</span></div>
-    <div class="bcard-info">1×/нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--blue)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;act&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;act&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;act&#39;,&#39;Доп. активность&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🔥</div><div class="bcard-name">Баня</div></div>
-    <div class="bcard-val">1<span> / 40</span></div>
-    <div class="bcard-info">2×/нед · 3%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:3%;background:var(--red)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--red)" onclick="dec(&#39;sauna&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--red)" onclick="inc(&#39;sauna&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--red)" onclick="promptSet(&#39;sauna&#39;,&#39;Баня&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🚶</div><div class="bcard-name">Прогулка</div></div>
-    <div class="bcard-val">0<span> / 111</span></div>
-    <div class="bcard-info">ежедн. · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--green)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--green)" onclick="dec(&#39;walk&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--green)" onclick="inc(&#39;walk&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--green)" onclick="promptSet(&#39;walk&#39;,&#39;Прогулка&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🌅</div><div class="bcard-name">Утр. медитация</div></div>
-    <div class="bcard-val">0<span> / 111</span></div>
-    <div class="bcard-info">ежедн. · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--gold)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--gold)" onclick="dec(&#39;med_m&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--gold)" onclick="inc(&#39;med_m&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--gold)" onclick="promptSet(&#39;med_m&#39;,&#39;Утр. медитация&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🌙</div><div class="bcard-name">Веч. медитация</div></div>
-    <div class="bcard-val">0<span> / 111</span></div>
-    <div class="bcard-info">ежедн. · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--gold)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--gold)" onclick="dec(&#39;med_e&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--gold)" onclick="inc(&#39;med_e&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--gold)" onclick="promptSet(&#39;med_e&#39;,&#39;Веч. медитация&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">📚</div><div class="bcard-name">Обучение</div></div>
-    <div class="bcard-val">0<span> / 45</span></div>
-    <div class="bcard-info">1/3 дня · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--gray)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--gray)" onclick="dec(&#39;learn&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--gray)" onclick="inc(&#39;learn&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--gray)" onclick="promptSet(&#39;learn&#39;,&#39;Обучение&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🧠</div><div class="bcard-name">Психолог</div></div>
-    <div class="bcard-val">0<span> / 10</span></div>
-    <div class="bcard-info">1/2 нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--blue)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;psych&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;psych&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;psych&#39;,&#39;Психолог&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🧊</div><div class="bcard-name">Холодный душ</div></div>
-    <div class="bcard-val">1<span> / 75</span></div>
-    <div class="bcard-info">ежедн. · 1%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:1%;background:var(--blue)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;cold&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;cold&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;cold&#39;,&#39;Холодный душ&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">💆</div><div class="bcard-name">Массаж</div></div>
-    <div class="bcard-val">0<span> / 10</span></div>
-    <div class="bcard-info">1/2 нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--gold)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--gold)" onclick="dec(&#39;massage&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--gold)" onclick="inc(&#39;massage&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--gold)" onclick="promptSet(&#39;massage&#39;,&#39;Массаж&#39;)">✏</button>
-    </div>
-  </div></div>
+  <div class="sh"><div class="sh-title">Энергия & Тело</div><div class="sh-line"></div></div>
+  <div class="grid-sm" id="bodyGrid"></div>
 </div>
 
 <!-- LIFE -->
 <div class="panel" id="panel-life">
-  <div class="sh"><div class="sh-title">Жизнь &amp; Социум</div><div class="sh-line"></div></div>
-  <div class="grid-sm" id="lifeGrid"><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">👥</div><div class="bcard-name">Встреча с другом</div></div>
-    <div class="bcard-val">0<span> / 10</span></div>
-    <div class="bcard-info">1/2 нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--green)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--green)" onclick="dec(&#39;friends&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--green)" onclick="inc(&#39;friends&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--green)" onclick="promptSet(&#39;friends&#39;,&#39;Встреча с другом&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">💃</div><div class="bcard-name">Свидание</div></div>
-    <div class="bcard-val">0<span> / 10</span></div>
-    <div class="bcard-info">1/2 нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--red)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--red)" onclick="dec(&#39;date&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--red)" onclick="inc(&#39;date&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--red)" onclick="promptSet(&#39;date&#39;,&#39;Свидание&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🎵</div><div class="bcard-name">Концерт</div></div>
-    <div class="bcard-val">0<span> / 10</span></div>
-    <div class="bcard-info">1/2 нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--blue)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;concert&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;concert&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;concert&#39;,&#39;Концерт&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🎬</div><div class="bcard-name">Вечер контента</div></div>
-    <div class="bcard-val">0<span> / 40</span></div>
-    <div class="bcard-info">2×/нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--gray)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--gray)" onclick="dec(&#39;eve&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--gray)" onclick="inc(&#39;eve&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--gray)" onclick="promptSet(&#39;eve&#39;,&#39;Вечер контента&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">🎮</div><div class="bcard-name">CS2</div></div>
-    <div class="bcard-val">0<span> / 50</span></div>
-    <div class="bcard-info">2-3×/нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--gray)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--gray)" onclick="dec(&#39;cs&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--gray)" onclick="inc(&#39;cs&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--gray)" onclick="promptSet(&#39;cs&#39;,&#39;CS2&#39;)">✏</button>
-    </div>
-  </div><div class="bcard">
-    <div class="bcard-top"><div class="bcard-icon">✈️</div><div class="bcard-name">Поездка / смена обст.</div></div>
-    <div class="bcard-val">0<span> / 6</span></div>
-    <div class="bcard-info">1/3.5 нед · 0%</div>
-    <div class="pbar" style="margin-bottom:10px"><div class="pfill" style="width:0%;background:var(--blue)"></div></div>
-    <div class="bcard-btns">
-      <button class="bsm" style="--ca:var(--blue)" onclick="dec(&#39;trip&#39;)">−</button>
-      <button class="bsm p" style="--ca:var(--blue)" onclick="inc(&#39;trip&#39;)">+ 1</button>
-      <button class="bsm" style="--ca:var(--blue)" onclick="promptSet(&#39;trip&#39;,&#39;Поездка / смена обст.&#39;)">✏</button>
-    </div>
-  </div></div>
+  <div class="sh"><div class="sh-title">Жизнь & Социум</div><div class="sh-line"></div></div>
+  <div class="grid-sm" id="lifeGrid"></div>
 </div>
 
 <!-- KANBAN -->
 <div class="panel" id="panel-kanban">
   <div class="sh"><div class="sh-title">Задачи</div><div class="sh-line"></div></div>
-  <div id="kanbanBoard"><div class="kb-sphere">
-      <div class="kb-sphere-head">
-        <span style="font-size:14px">📹</span>
-        <div class="kb-sphere-title" style="color:var(--blue)">Контент</div>
-        <div class="kb-sphere-line"></div>
-        <button class="kb-sphere-btn" onclick="openModal(&#39;content&#39;,&#39;todo&#39;)">+ Задача</button>
-      </div>
-      <div class="kb-cols">
-        <div class="kcol" id="kc-content-todo" ondragover="event.preventDefault();document.getElementById(&#39;kc-content-todo&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-content-todo&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;content&#39;,&#39;todo&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--muted)">To Do</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;content&#39;,&#39;todo&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-content-inprogress" ondragover="event.preventDefault();document.getElementById(&#39;kc-content-inprogress&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-content-inprogress&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;content&#39;,&#39;inprogress&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--blue)">In Progress</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;content&#39;,&#39;inprogress&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-content-done" ondragover="event.preventDefault();document.getElementById(&#39;kc-content-done&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-content-done&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;content&#39;,&#39;done&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--green)">Done</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;content&#39;,&#39;done&#39;)">+ Добавить</button>
-          </div>
-      </div>
-    </div><div class="kb-sphere">
-      <div class="kb-sphere-head">
-        <span style="font-size:14px">🧑‍💻</span>
-        <div class="kb-sphere-title" style="color:var(--gray)">Катя</div>
-        <div class="kb-sphere-line"></div>
-        <button class="kb-sphere-btn" onclick="openModal(&#39;katya&#39;,&#39;todo&#39;)">+ Задача</button>
-      </div>
-      <div class="kb-cols">
-        <div class="kcol" id="kc-katya-todo" ondragover="event.preventDefault();document.getElementById(&#39;kc-katya-todo&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-katya-todo&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;katya&#39;,&#39;todo&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--muted)">To Do</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;katya&#39;,&#39;todo&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-katya-inprogress" ondragover="event.preventDefault();document.getElementById(&#39;kc-katya-inprogress&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-katya-inprogress&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;katya&#39;,&#39;inprogress&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--blue)">In Progress</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;katya&#39;,&#39;inprogress&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-katya-done" ondragover="event.preventDefault();document.getElementById(&#39;kc-katya-done&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-katya-done&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;katya&#39;,&#39;done&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--green)">Done</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;katya&#39;,&#39;done&#39;)">+ Добавить</button>
-          </div>
-      </div>
-    </div><div class="kb-sphere">
-      <div class="kb-sphere-head">
-        <span style="font-size:14px">💰</span>
-        <div class="kb-sphere-title" style="color:var(--green)">Деньги</div>
-        <div class="kb-sphere-line"></div>
-        <button class="kb-sphere-btn" onclick="openModal(&#39;finance&#39;,&#39;todo&#39;)">+ Задача</button>
-      </div>
-      <div class="kb-cols">
-        <div class="kcol" id="kc-finance-todo" ondragover="event.preventDefault();document.getElementById(&#39;kc-finance-todo&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-finance-todo&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;finance&#39;,&#39;todo&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--muted)">To Do</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;finance&#39;,&#39;todo&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-finance-inprogress" ondragover="event.preventDefault();document.getElementById(&#39;kc-finance-inprogress&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-finance-inprogress&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;finance&#39;,&#39;inprogress&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--blue)">In Progress</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;finance&#39;,&#39;inprogress&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-finance-done" ondragover="event.preventDefault();document.getElementById(&#39;kc-finance-done&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-finance-done&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;finance&#39;,&#39;done&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--green)">Done</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;finance&#39;,&#39;done&#39;)">+ Добавить</button>
-          </div>
-      </div>
-    </div><div class="kb-sphere">
-      <div class="kb-sphere-head">
-        <span style="font-size:14px">💪</span>
-        <div class="kb-sphere-title" style="color:var(--red)">Энергия</div>
-        <div class="kb-sphere-line"></div>
-        <button class="kb-sphere-btn" onclick="openModal(&#39;body&#39;,&#39;todo&#39;)">+ Задача</button>
-      </div>
-      <div class="kb-cols">
-        <div class="kcol" id="kc-body-todo" ondragover="event.preventDefault();document.getElementById(&#39;kc-body-todo&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-body-todo&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;body&#39;,&#39;todo&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--muted)">To Do</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;body&#39;,&#39;todo&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-body-inprogress" ondragover="event.preventDefault();document.getElementById(&#39;kc-body-inprogress&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-body-inprogress&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;body&#39;,&#39;inprogress&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--blue)">In Progress</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;body&#39;,&#39;inprogress&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-body-done" ondragover="event.preventDefault();document.getElementById(&#39;kc-body-done&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-body-done&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;body&#39;,&#39;done&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--green)">Done</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;body&#39;,&#39;done&#39;)">+ Добавить</button>
-          </div>
-      </div>
-    </div><div class="kb-sphere">
-      <div class="kb-sphere-head">
-        <span style="font-size:14px">🌱</span>
-        <div class="kb-sphere-title" style="color:var(--gold)">Жизнь</div>
-        <div class="kb-sphere-line"></div>
-        <button class="kb-sphere-btn" onclick="openModal(&#39;life&#39;,&#39;todo&#39;)">+ Задача</button>
-      </div>
-      <div class="kb-cols">
-        <div class="kcol" id="kc-life-todo" ondragover="event.preventDefault();document.getElementById(&#39;kc-life-todo&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-life-todo&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;life&#39;,&#39;todo&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--muted)">To Do</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;life&#39;,&#39;todo&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-life-inprogress" ondragover="event.preventDefault();document.getElementById(&#39;kc-life-inprogress&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-life-inprogress&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;life&#39;,&#39;inprogress&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--blue)">In Progress</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;life&#39;,&#39;inprogress&#39;)">+ Добавить</button>
-          </div><div class="kcol" id="kc-life-done" ondragover="event.preventDefault();document.getElementById(&#39;kc-life-done&#39;).classList.add(&#39;over&#39;)" ondragleave="document.getElementById(&#39;kc-life-done&#39;).classList.remove(&#39;over&#39;)" ondrop="dropCard(event,&#39;life&#39;,&#39;done&#39;)">
-            <div class="kcol-head">
-              <div class="kcol-title" style="color:var(--green)">Done</div>
-              <div class="kcol-cnt">0</div>
-            </div>
-            
-            <button class="add-card" onclick="openModal(&#39;life&#39;,&#39;done&#39;)">+ Добавить</button>
-          </div>
-      </div>
-    </div></div>
+  <div id="kanbanBoard"></div>
 </div>
 
 </div><!-- /main -->
@@ -1842,7 +1028,13 @@ let weekPlan = ld('lo_wkplan', {});
 // drag state
 let wkDragCard = null; // {id, title, sphere, fromDate, fromSlot} — fromDate/fromSlot null if from kanban
 
-function dateKey(d){ return d.toISOString().slice(0,10); }
+function dateKey(d){
+  // Use local date, not UTC — avoids timezone shift issues
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
 
 function get14Days(offset){
   const now = new Date();
@@ -1971,6 +1163,5 @@ function renderAll(){
 renderAll();
 setInterval(renderTopBar, 30000);
 </script>
-
-
-</body></html>
+</body>
+</html>
