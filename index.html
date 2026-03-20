@@ -1002,12 +1002,47 @@ document.getElementById('wkAddInput').addEventListener('keydown',e=>{if(e.key===
 document.getElementById('wkDetailModal').addEventListener('click',e=>{if(e.target===document.getElementById('wkDetailModal'))wkCloseDetail()});
 
 // ── TABS ──
+const TAB_ORDER = ['overview','week','content','finance','body','life','kanban'];
+let currentTabIdx = 0;
+
 function switchTab(btn,name){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
+  if(btn) btn.classList.add('active');
+  else document.querySelector(`.tab[onclick*="'${name}'"]`)?.classList.add('active');
   document.getElementById('panel-'+name).classList.add('active');
+  currentTabIdx = TAB_ORDER.indexOf(name);
 }
+
+function switchToIdx(idx){
+  if(idx < 0 || idx >= TAB_ORDER.length) return;
+  const name = TAB_ORDER[idx];
+  const btn = document.querySelector(`.tab[onclick*="'${name}'"]`);
+  switchTab(btn, name);
+  // scroll tab into view
+  if(btn) btn.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+}
+
+// ── SWIPE SUPPORT ──
+(function(){
+  let startX=0, startY=0, startTime=0;
+  const main = document.querySelector('.main');
+  main.addEventListener('touchstart', e=>{
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    startTime = Date.now();
+  }, {passive:true});
+  main.addEventListener('touchend', e=>{
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+    const dt = Date.now() - startTime;
+    // horizontal swipe: fast enough, long enough, more horizontal than vertical
+    if(dt < 400 && Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)*1.5){
+      if(dx < 0) switchToIdx(currentTabIdx + 1); // swipe left → next
+      else        switchToIdx(currentTabIdx - 1); // swipe right → prev
+    }
+  }, {passive:true});
+})();
 
 // ── WEEK PLANNER ──
 const SLOTS = [
