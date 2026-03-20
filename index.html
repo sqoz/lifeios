@@ -1036,10 +1036,11 @@ function switchToIdx(idx){
     const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
     const dt = Date.now() - startTime;
-    // horizontal swipe: fast enough, long enough, more horizontal than vertical
+    // disable swipe on week tab (calendar needs horizontal scroll)
+    if(TAB_ORDER[currentTabIdx] === 'week') return;
     if(dt < 400 && Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)*1.5){
-      if(dx < 0) switchToIdx(currentTabIdx + 1); // swipe left → next
-      else        switchToIdx(currentTabIdx - 1); // swipe right → prev
+      if(dx < 0) switchToIdx(currentTabIdx + 1);
+      else        switchToIdx(currentTabIdx - 1);
     }
   }, {passive:true});
 })();
